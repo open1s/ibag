@@ -5,6 +5,7 @@ edition = "2021"
 authors = ["Brian G"]
 repository = "https://github.com/open1s/ibuf.git"
 description = "A thread-safe, immutable bag for holding any value"
+license = "MIT"
 
 [dependencies]
 arc-swap = "1.7.1"

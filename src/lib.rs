@@ -1,3 +1,6 @@
+// Copyright 2023 Gaosg
+// Licensed under the MIT license (https://opensource.org/licenses/MIT)
+
 #![allow(non_camel_case_types)]
 
 use std::sync::{Arc, RwLock, RwLockReadGuard, RwLockWriteGuard};

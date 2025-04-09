@@ -1,7 +1,10 @@
 [package]
 name = "ibag"
-version = "0.1.0"
+version = "0.2.1"
 edition = "2021"
+authors = ["Brian G"]
+repository = "https://github.com/open1s/ibuf.git"
+description = "A thread-safe, immutable bag for holding any value"
 
 [dependencies]
 arc-swap = "1.7.1"

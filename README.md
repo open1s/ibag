@@ -15,7 +15,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-ibag = "0.3.0"
+ibag = "0.3"
 ```
 
 ## Usage

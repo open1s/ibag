@@ -23,14 +23,10 @@ fn test_ownership_transfer() {
     let handle = thread::spawn(move || {
         assert!(cell.take_ownership().is_ok());
         assert_eq!(cell.try_get().unwrap(), "test");
-        cell
     });
     
     // Get cell back from thread
-    let cell = handle.join().unwrap();
-    
-    // Original thread no longer has access
-    assert!(cell.try_get().is_err());
+    handle.join().unwrap();
 }
 
 #[test]

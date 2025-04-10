@@ -155,7 +155,7 @@ impl<T> iCell<T> {
     /// let cell = iCell::new(42, false);
     /// let value = unsafe { cell.into_inner() };
     /// ```
-    fn into_inner(self) -> T {
+    pub fn into_inner(self) -> T {
         self.assert_thread();
         let mut this = ManuallyDrop::new(self);
 

@@ -5,6 +5,7 @@
 use std::sync::{Arc, RwLock, RwLockReadGuard, RwLockWriteGuard};
 
 /// A thread-safe, immutable bag for holding any value
+#[derive(Debug)]
 pub struct iBag<T: Sized> {
     inner: Arc<RwLock<T>>,
 }

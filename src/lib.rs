@@ -4,6 +4,7 @@
 pub mod errors;
 pub mod bag;
 pub mod cell;
+pub mod sendable;
 
 pub use bag::iBag;
 pub use cell::iCell;

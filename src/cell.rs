@@ -463,3 +463,33 @@ fn test_rc_sending_take_ownership() {
     recv.join().unwrap();
     sender.join().unwrap();
 }
+
+#[test]
+fn test_use_after_free() {
+    use std::rc::Rc;
+    use std::sync::mpsc::channel;
+    use std::thread;
+
+    let val = iCell::new(Rc::new(true), false);
+    let (tx, rx) = channel();
+
+    let sender = thread::spawn(move || {
+        assert!(val.try_get().is_err());
+        let here = val;
+        tx.send(here).unwrap();
+    });
+
+    sender.join().unwrap();
+
+    let recv = thread::spawn(move || {
+        let rv = rx.recv().unwrap();
+        let r = rv.take_ownership();
+        match r {
+            Ok(_) => {},
+            Err(_) => panic!("failed to take ownership"),
+        }
+        assert!(**rv.get());
+    });
+
+    recv.join().unwrap();
+}
